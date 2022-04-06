@@ -1,0 +1,657 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssx.eam2ncc.dao.XtyhxxDao">
+
+    <resultMap type="com.ssx.eam2ncc.entity.Xtyhxx" id="XtyhxxMap">
+        <result property="dwdm" column="DWDM" jdbcType="VARCHAR"/>
+        <result property="yhdm" column="YHDM" jdbcType="INTEGER"/>
+        <result property="yhmc" column="YHMC" jdbcType="VARCHAR"/>
+        <result property="xsmc" column="XSMC" jdbcType="VARCHAR"/>
+        <result property="yhmm" column="YHMM" jdbcType="VARCHAR"/>
+        <result property="javamm" column="JAVAMM" jdbcType="VARCHAR"/>
+        <result property="czlx" column="CZLX" jdbcType="INTEGER"/>
+        <result property="yhbz" column="YHBZ" jdbcType="INTEGER"/>
+        <result property="jcqx" column="JCQX" jdbcType="INTEGER"/>
+        <result property="autheninfo" column="AUTHENINFO" jdbcType="VARCHAR"/>
+        <result property="flid" column="FLID" jdbcType="INTEGER"/>
+        <result property="sjbz" column="SJBZ" jdbcType="INTEGER"/>
+        <result property="gnbz" column="GNBZ" jdbcType="INTEGER"/>
+        <result property="stoped" column="STOPED" jdbcType="INTEGER"/>
+        <result property="ick" column="ICK" jdbcType="INTEGER"/>
+        <result property="icksj" column="ICKSJ" jdbcType="VARCHAR"/>
+        <result property="ksrq" column="KSRQ" jdbcType="TIMESTAMP"/>
+        <result property="zzrq" column="ZZRQ" jdbcType="TIMESTAMP"/>
+        <result property="xtdxid" column="XTDXID" jdbcType="INTEGER"/>
+        <result property="movetel" column="MOVETEL" jdbcType="VARCHAR"/>
+        <result property="ipaddr" column="IPADDR" jdbcType="VARCHAR"/>
+        <result property="netcard" column="NETCARD" jdbcType="VARCHAR"/>
+        <result property="cpucode" column="CPUCODE" jdbcType="VARCHAR"/>
+        <result property="usertype" column="USERTYPE" jdbcType="INTEGER"/>
+        <result property="userident" column="USERIDENT" jdbcType="VARCHAR"/>
+        <result property="dh" column="DH" jdbcType="VARCHAR"/>
+        <result property="isneedchgpwd" column="ISNEEDCHGPWD" jdbcType="VARCHAR"/>
+        <result property="pwdusefullife" column="PWDUSEFULLIFE" jdbcType="VARCHAR"/>
+        <result property="chgpwdlasttime" column="CHGPWDLASTTIME" jdbcType="TIMESTAMP"/>
+        <result property="historypwdinfo" column="HISTORYPWDINFO" jdbcType="VARCHAR"/>
+        <result property="yhbm" column="YHBM" jdbcType="VARCHAR"/>
+        <result property="dxdw" column="DXDW" jdbcType="VARCHAR"/>
+        <result property="email" column="EMAIL" jdbcType="VARCHAR"/>
+        <result property="compid" column="COMPID" jdbcType="VARCHAR"/>
+        <result property="isshare" column="ISSHARE" jdbcType="NUMERIC"/>
+        <result property="securgrd" column="SECURGRD" jdbcType="INTEGER"/>
+        <result property="enabledefaultprint" column="ENABLEDEFAULTPRINT" jdbcType="VARCHAR"/>
+        <result property="enableupdown" column="ENABLEUPDOWN" jdbcType="VARCHAR"/>
+        <result property="usersslb" column="USERSSLB" jdbcType="VARCHAR"/>
+        <result property="vpdCompid" column="VPD_COMPID" jdbcType="VARCHAR"/>
+        <result property="authtype" column="AUTHTYPE" jdbcType="VARCHAR"/>
+        <result property="lowermaninvisible" column="LOWERMANINVISIBLE" jdbcType="VARCHAR"/>
+        <result property="ownerid" column="OWNERID" jdbcType="VARCHAR"/>
+        <result property="appid" column="APPID" jdbcType="VARCHAR"/>
+        <result property="gid" column="GID" jdbcType="VARCHAR"/>
+        <result property="sex" column="SEX" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="XtyhxxMap">
+        select DWDM,
+               YHDM,
+               YHMC,
+               XSMC,
+               YHMM,
+               JAVAMM,
+               CZLX,
+               YHBZ,
+               JCQX,
+               AUTHENINFO,
+               FLID,
+               SJBZ,
+               GNBZ,
+               STOPED,
+               ICK,
+               ICKSJ,
+               KSRQ,
+               ZZRQ,
+               XTDXID,
+               MOVETEL,
+               IPADDR,
+               NETCARD,
+               CPUCODE,
+               USERTYPE,
+               USERIDENT,
+               DH,
+               ISNEEDCHGPWD,
+               PWDUSEFULLIFE,
+               CHGPWDLASTTIME,
+               HISTORYPWDINFO,
+               YHBM,
+               DXDW,
+               EMAIL,
+               COMPID,
+               ISSHARE,
+               SECURGRD,
+               ENABLEDEFAULTPRINT,
+               ENABLEUPDOWN,
+               USERSSLB,
+               VPD_COMPID,
+               AUTHTYPE,
+               LOWERMANINVISIBLE,
+               OWNERID,
+               APPID,
+               GID,
+               SEX
+        from XTYHXX
+        where = #{}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="XtyhxxMap">
+        select
+        DWDM, YHDM, YHMC, XSMC, YHMM, JAVAMM, CZLX, YHBZ, JCQX, AUTHENINFO, FLID, SJBZ, GNBZ, STOPED, ICK, ICKSJ, KSRQ,
+        ZZRQ, XTDXID, MOVETEL, IPADDR, NETCARD, CPUCODE, USERTYPE, USERIDENT, DH, ISNEEDCHGPWD, PWDUSEFULLIFE,
+        CHGPWDLASTTIME, HISTORYPWDINFO, YHBM, DXDW, EMAIL, COMPID, ISSHARE, SECURGRD, ENABLEDEFAULTPRINT, ENABLEUPDOWN,
+        USERSSLB, VPD_COMPID, AUTHTYPE, LOWERMANINVISIBLE, OWNERID, APPID, GID, SEX
+        from XTYHXX
+        <where>
+            <if test="dwdm != null and dwdm != ''">
+                and DWDM = #{dwdm}
+            </if>
+            <if test="yhdm != null">
+                and YHDM = #{yhdm}
+            </if>
+            <if test="yhmc != null and yhmc != ''">
+                and YHMC = #{yhmc}
+            </if>
+            <if test="xsmc != null and xsmc != ''">
+                and XSMC = #{xsmc}
+            </if>
+            <if test="yhmm != null and yhmm != ''">
+                and YHMM = #{yhmm}
+            </if>
+            <if test="javamm != null and javamm != ''">
+                and JAVAMM = #{javamm}
+            </if>
+            <if test="czlx != null">
+                and CZLX = #{czlx}
+            </if>
+            <if test="yhbz != null">
+                and YHBZ = #{yhbz}
+            </if>
+            <if test="jcqx != null">
+                and JCQX = #{jcqx}
+            </if>
+            <if test="autheninfo != null and autheninfo != ''">
+                and AUTHENINFO = #{autheninfo}
+            </if>
+            <if test="flid != null">
+                and FLID = #{flid}
+            </if>
+            <if test="sjbz != null">
+                and SJBZ = #{sjbz}
+            </if>
+            <if test="gnbz != null">
+                and GNBZ = #{gnbz}
+            </if>
+            <if test="stoped != null">
+                and STOPED = #{stoped}
+            </if>
+            <if test="ick != null">
+                and ICK = #{ick}
+            </if>
+            <if test="icksj != null and icksj != ''">
+                and ICKSJ = #{icksj}
+            </if>
+            <if test="ksrq != null">
+                and KSRQ = #{ksrq}
+            </if>
+            <if test="zzrq != null">
+                and ZZRQ = #{zzrq}
+            </if>
+            <if test="xtdxid != null">
+                and XTDXID = #{xtdxid}
+            </if>
+            <if test="movetel != null and movetel != ''">
+                and MOVETEL = #{movetel}
+            </if>
+            <if test="ipaddr != null and ipaddr != ''">
+                and IPADDR = #{ipaddr}
+            </if>
+            <if test="netcard != null and netcard != ''">
+                and NETCARD = #{netcard}
+            </if>
+            <if test="cpucode != null and cpucode != ''">
+                and CPUCODE = #{cpucode}
+            </if>
+            <if test="usertype != null">
+                and USERTYPE = #{usertype}
+            </if>
+            <if test="userident != null and userident != ''">
+                and USERIDENT = #{userident}
+            </if>
+            <if test="dh != null and dh != ''">
+                and DH = #{dh}
+            </if>
+            <if test="isneedchgpwd != null">
+                and ISNEEDCHGPWD = #{isneedchgpwd}
+            </if>
+            <if test="pwdusefullife != null">
+                and PWDUSEFULLIFE = #{pwdusefullife}
+            </if>
+            <if test="chgpwdlasttime != null">
+                and CHGPWDLASTTIME = #{chgpwdlasttime}
+            </if>
+            <if test="historypwdinfo != null and historypwdinfo != ''">
+                and HISTORYPWDINFO = #{historypwdinfo}
+            </if>
+            <if test="yhbm != null and yhbm != ''">
+                and YHBM = #{yhbm}
+            </if>
+            <if test="dxdw != null and dxdw != ''">
+                and DXDW = #{dxdw}
+            </if>
+            <if test="email != null and email != ''">
+                and EMAIL = #{email}
+            </if>
+            <if test="compid != null and compid != ''">
+                and COMPID = #{compid}
+            </if>
+            <if test="isshare != null">
+                and ISSHARE = #{isshare}
+            </if>
+            <if test="securgrd != null">
+                and SECURGRD = #{securgrd}
+            </if>
+            <if test="enabledefaultprint != null and enabledefaultprint != ''">
+                and ENABLEDEFAULTPRINT = #{enabledefaultprint}
+            </if>
+            <if test="enableupdown != null and enableupdown != ''">
+                and ENABLEUPDOWN = #{enableupdown}
+            </if>
+            <if test="usersslb != null and usersslb != ''">
+                and USERSSLB = #{usersslb}
+            </if>
+            <if test="vpdCompid != null and vpdCompid != ''">
+                and VPD_COMPID = #{vpdCompid}
+            </if>
+            <if test="authtype != null">
+                and AUTHTYPE = #{authtype}
+            </if>
+            <if test="lowermaninvisible != null and lowermaninvisible != ''">
+                and LOWERMANINVISIBLE = #{lowermaninvisible}
+            </if>
+            <if test="ownerid != null and ownerid != ''">
+                and OWNERID = #{ownerid}
+            </if>
+            <if test="appid != null and appid != ''">
+                and APPID = #{appid}
+            </if>
+            <if test="gid != null and gid != ''">
+                and GID = #{gid}
+            </if>
+            <if test="sex != null and sex != ''">
+                and SEX = #{sex}
+            </if>
+        </where>
+        limit #{pageable.offset}, #{pageable.pageSize}
+    </select>
+
+    <!--统计总行数-->
+    <select id="count" resultType="java.lang.Long">
+        select count(1)
+        from XTYHXX
+        <where>
+            <if test="dwdm != null and dwdm != ''">
+                and DWDM = #{dwdm}
+            </if>
+            <if test="yhdm != null">
+                and YHDM = #{yhdm}
+            </if>
+            <if test="yhmc != null and yhmc != ''">
+                and YHMC = #{yhmc}
+            </if>
+            <if test="xsmc != null and xsmc != ''">
+                and XSMC = #{xsmc}
+            </if>
+            <if test="yhmm != null and yhmm != ''">
+                and YHMM = #{yhmm}
+            </if>
+            <if test="javamm != null and javamm != ''">
+                and JAVAMM = #{javamm}
+            </if>
+            <if test="czlx != null">
+                and CZLX = #{czlx}
+            </if>
+            <if test="yhbz != null">
+                and YHBZ = #{yhbz}
+            </if>
+            <if test="jcqx != null">
+                and JCQX = #{jcqx}
+            </if>
+            <if test="autheninfo != null and autheninfo != ''">
+                and AUTHENINFO = #{autheninfo}
+            </if>
+            <if test="flid != null">
+                and FLID = #{flid}
+            </if>
+            <if test="sjbz != null">
+                and SJBZ = #{sjbz}
+            </if>
+            <if test="gnbz != null">
+                and GNBZ = #{gnbz}
+            </if>
+            <if test="stoped != null">
+                and STOPED = #{stoped}
+            </if>
+            <if test="ick != null">
+                and ICK = #{ick}
+            </if>
+            <if test="icksj != null and icksj != ''">
+                and ICKSJ = #{icksj}
+            </if>
+            <if test="ksrq != null">
+                and KSRQ = #{ksrq}
+            </if>
+            <if test="zzrq != null">
+                and ZZRQ = #{zzrq}
+            </if>
+            <if test="xtdxid != null">
+                and XTDXID = #{xtdxid}
+            </if>
+            <if test="movetel != null and movetel != ''">
+                and MOVETEL = #{movetel}
+            </if>
+            <if test="ipaddr != null and ipaddr != ''">
+                and IPADDR = #{ipaddr}
+            </if>
+            <if test="netcard != null and netcard != ''">
+                and NETCARD = #{netcard}
+            </if>
+            <if test="cpucode != null and cpucode != ''">
+                and CPUCODE = #{cpucode}
+            </if>
+            <if test="usertype != null">
+                and USERTYPE = #{usertype}
+            </if>
+            <if test="userident != null and userident != ''">
+                and USERIDENT = #{userident}
+            </if>
+            <if test="dh != null and dh != ''">
+                and DH = #{dh}
+            </if>
+            <if test="isneedchgpwd != null">
+                and ISNEEDCHGPWD = #{isneedchgpwd}
+            </if>
+            <if test="pwdusefullife != null">
+                and PWDUSEFULLIFE = #{pwdusefullife}
+            </if>
+            <if test="chgpwdlasttime != null">
+                and CHGPWDLASTTIME = #{chgpwdlasttime}
+            </if>
+            <if test="historypwdinfo != null and historypwdinfo != ''">
+                and HISTORYPWDINFO = #{historypwdinfo}
+            </if>
+            <if test="yhbm != null and yhbm != ''">
+                and YHBM = #{yhbm}
+            </if>
+            <if test="dxdw != null and dxdw != ''">
+                and DXDW = #{dxdw}
+            </if>
+            <if test="email != null and email != ''">
+                and EMAIL = #{email}
+            </if>
+            <if test="compid != null and compid != ''">
+                and COMPID = #{compid}
+            </if>
+            <if test="isshare != null">
+                and ISSHARE = #{isshare}
+            </if>
+            <if test="securgrd != null">
+                and SECURGRD = #{securgrd}
+            </if>
+            <if test="enabledefaultprint != null and enabledefaultprint != ''">
+                and ENABLEDEFAULTPRINT = #{enabledefaultprint}
+            </if>
+            <if test="enableupdown != null and enableupdown != ''">
+                and ENABLEUPDOWN = #{enableupdown}
+            </if>
+            <if test="usersslb != null and usersslb != ''">
+                and USERSSLB = #{usersslb}
+            </if>
+            <if test="vpdCompid != null and vpdCompid != ''">
+                and VPD_COMPID = #{vpdCompid}
+            </if>
+            <if test="authtype != null">
+                and AUTHTYPE = #{authtype}
+            </if>
+            <if test="lowermaninvisible != null and lowermaninvisible != ''">
+                and LOWERMANINVISIBLE = #{lowermaninvisible}
+            </if>
+            <if test="ownerid != null and ownerid != ''">
+                and OWNERID = #{ownerid}
+            </if>
+            <if test="appid != null and appid != ''">
+                and APPID = #{appid}
+            </if>
+            <if test="gid != null and gid != ''">
+                and GID = #{gid}
+            </if>
+            <if test="sex != null and sex != ''">
+                and SEX = #{sex}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="" useGeneratedKeys="true">
+        insert into XTYHXX(DWDM, YHDM, YHMC, XSMC, YHMM, JAVAMM, CZLX, YHBZ, JCQX, AUTHENINFO, FLID, SJBZ, GNBZ, STOPED,
+                           ICK, ICKSJ, KSRQ, ZZRQ, XTDXID, MOVETEL, IPADDR, NETCARD, CPUCODE, USERTYPE, USERIDENT, DH,
+                           ISNEEDCHGPWD, PWDUSEFULLIFE, CHGPWDLASTTIME, HISTORYPWDINFO, YHBM, DXDW, EMAIL, COMPID,
+                           ISSHARE, SECURGRD, ENABLEDEFAULTPRINT, ENABLEUPDOWN, USERSSLB, VPD_COMPID, AUTHTYPE,
+                           LOWERMANINVISIBLE, OWNERID, APPID, GID, SEX)
+        values (#{dwdm}, #{yhdm}, #{yhmc}, #{xsmc}, #{yhmm}, #{javamm}, #{czlx}, #{yhbz}, #{jcqx}, #{autheninfo},
+                #{flid}, #{sjbz}, #{gnbz}, #{stoped}, #{ick}, #{icksj}, #{ksrq}, #{zzrq}, #{xtdxid}, #{movetel},
+                #{ipaddr}, #{netcard}, #{cpucode}, #{usertype}, #{userident}, #{dh}, #{isneedchgpwd}, #{pwdusefullife},
+                #{chgpwdlasttime}, #{historypwdinfo}, #{yhbm}, #{dxdw}, #{email}, #{compid}, #{isshare}, #{securgrd},
+                #{enabledefaultprint}, #{enableupdown}, #{usersslb}, #{vpdCompid}, #{authtype}, #{lowermaninvisible},
+                #{ownerid}, #{appid}, #{gid}, #{sex})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="" useGeneratedKeys="true">
+        insert into XTYHXX(DWDM, YHDM, YHMC, XSMC, YHMM, JAVAMM, CZLX, YHBZ, JCQX, AUTHENINFO, FLID, SJBZ, GNBZ, STOPED,
+        ICK, ICKSJ, KSRQ, ZZRQ, XTDXID, MOVETEL, IPADDR, NETCARD, CPUCODE, USERTYPE, USERIDENT, DH, ISNEEDCHGPWD,
+        PWDUSEFULLIFE, CHGPWDLASTTIME, HISTORYPWDINFO, YHBM, DXDW, EMAIL, COMPID, ISSHARE, SECURGRD, ENABLEDEFAULTPRINT,
+        ENABLEUPDOWN, USERSSLB, VPD_COMPID, AUTHTYPE, LOWERMANINVISIBLE, OWNERID, APPID, GID, SEX)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.dwdm}, #{entity.yhdm}, #{entity.yhmc}, #{entity.xsmc}, #{entity.yhmm}, #{entity.javamm},
+            #{entity.czlx}, #{entity.yhbz}, #{entity.jcqx}, #{entity.autheninfo}, #{entity.flid}, #{entity.sjbz},
+            #{entity.gnbz}, #{entity.stoped}, #{entity.ick}, #{entity.icksj}, #{entity.ksrq}, #{entity.zzrq},
+            #{entity.xtdxid}, #{entity.movetel}, #{entity.ipaddr}, #{entity.netcard}, #{entity.cpucode},
+            #{entity.usertype}, #{entity.userident}, #{entity.dh}, #{entity.isneedchgpwd}, #{entity.pwdusefullife},
+            #{entity.chgpwdlasttime}, #{entity.historypwdinfo}, #{entity.yhbm}, #{entity.dxdw}, #{entity.email},
+            #{entity.compid}, #{entity.isshare}, #{entity.securgrd}, #{entity.enabledefaultprint},
+            #{entity.enableupdown}, #{entity.usersslb}, #{entity.vpdCompid}, #{entity.authtype},
+            #{entity.lowermaninvisible}, #{entity.ownerid}, #{entity.appid}, #{entity.gid}, #{entity.sex})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="" useGeneratedKeys="true">
+        insert into XTYHXX(DWDM, YHDM, YHMC, XSMC, YHMM, JAVAMM, CZLX, YHBZ, JCQX, AUTHENINFO, FLID, SJBZ, GNBZ, STOPED,
+        ICK, ICKSJ, KSRQ, ZZRQ, XTDXID, MOVETEL, IPADDR, NETCARD, CPUCODE, USERTYPE, USERIDENT, DH, ISNEEDCHGPWD,
+        PWDUSEFULLIFE, CHGPWDLASTTIME, HISTORYPWDINFO, YHBM, DXDW, EMAIL, COMPID, ISSHARE, SECURGRD, ENABLEDEFAULTPRINT,
+        ENABLEUPDOWN, USERSSLB, VPD_COMPID, AUTHTYPE, LOWERMANINVISIBLE, OWNERID, APPID, GID, SEX)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.dwdm}, #{entity.yhdm}, #{entity.yhmc}, #{entity.xsmc}, #{entity.yhmm}, #{entity.javamm},
+            #{entity.czlx}, #{entity.yhbz}, #{entity.jcqx}, #{entity.autheninfo}, #{entity.flid}, #{entity.sjbz},
+            #{entity.gnbz}, #{entity.stoped}, #{entity.ick}, #{entity.icksj}, #{entity.ksrq}, #{entity.zzrq},
+            #{entity.xtdxid}, #{entity.movetel}, #{entity.ipaddr}, #{entity.netcard}, #{entity.cpucode},
+            #{entity.usertype}, #{entity.userident}, #{entity.dh}, #{entity.isneedchgpwd}, #{entity.pwdusefullife},
+            #{entity.chgpwdlasttime}, #{entity.historypwdinfo}, #{entity.yhbm}, #{entity.dxdw}, #{entity.email},
+            #{entity.compid}, #{entity.isshare}, #{entity.securgrd}, #{entity.enabledefaultprint},
+            #{entity.enableupdown}, #{entity.usersslb}, #{entity.vpdCompid}, #{entity.authtype},
+            #{entity.lowermaninvisible}, #{entity.ownerid}, #{entity.appid}, #{entity.gid}, #{entity.sex})
+        </foreach>
+        on duplicate key update
+        DWDM = values(DWDM),
+        YHDM = values(YHDM),
+        YHMC = values(YHMC),
+        XSMC = values(XSMC),
+        YHMM = values(YHMM),
+        JAVAMM = values(JAVAMM),
+        CZLX = values(CZLX),
+        YHBZ = values(YHBZ),
+        JCQX = values(JCQX),
+        AUTHENINFO = values(AUTHENINFO),
+        FLID = values(FLID),
+        SJBZ = values(SJBZ),
+        GNBZ = values(GNBZ),
+        STOPED = values(STOPED),
+        ICK = values(ICK),
+        ICKSJ = values(ICKSJ),
+        KSRQ = values(KSRQ),
+        ZZRQ = values(ZZRQ),
+        XTDXID = values(XTDXID),
+        MOVETEL = values(MOVETEL),
+        IPADDR = values(IPADDR),
+        NETCARD = values(NETCARD),
+        CPUCODE = values(CPUCODE),
+        USERTYPE = values(USERTYPE),
+        USERIDENT = values(USERIDENT),
+        DH = values(DH),
+        ISNEEDCHGPWD = values(ISNEEDCHGPWD),
+        PWDUSEFULLIFE = values(PWDUSEFULLIFE),
+        CHGPWDLASTTIME = values(CHGPWDLASTTIME),
+        HISTORYPWDINFO = values(HISTORYPWDINFO),
+        YHBM = values(YHBM),
+        DXDW = values(DXDW),
+        EMAIL = values(EMAIL),
+        COMPID = values(COMPID),
+        ISSHARE = values(ISSHARE),
+        SECURGRD = values(SECURGRD),
+        ENABLEDEFAULTPRINT = values(ENABLEDEFAULTPRINT),
+        ENABLEUPDOWN = values(ENABLEUPDOWN),
+        USERSSLB = values(USERSSLB),
+        VPD_COMPID = values(VPD_COMPID),
+        AUTHTYPE = values(AUTHTYPE),
+        LOWERMANINVISIBLE = values(LOWERMANINVISIBLE),
+        OWNERID = values(OWNERID),
+        APPID = values(APPID),
+        GID = values(GID),
+        SEX = values(SEX)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update XTYHXX
+        <set>
+            <if test="dwdm != null and dwdm != ''">
+                DWDM = #{dwdm},
+            </if>
+            <if test="yhdm != null">
+                YHDM = #{yhdm},
+            </if>
+            <if test="yhmc != null and yhmc != ''">
+                YHMC = #{yhmc},
+            </if>
+            <if test="xsmc != null and xsmc != ''">
+                XSMC = #{xsmc},
+            </if>
+            <if test="yhmm != null and yhmm != ''">
+                YHMM = #{yhmm},
+            </if>
+            <if test="javamm != null and javamm != ''">
+                JAVAMM = #{javamm},
+            </if>
+            <if test="czlx != null">
+                CZLX = #{czlx},
+            </if>
+            <if test="yhbz != null">
+                YHBZ = #{yhbz},
+            </if>
+            <if test="jcqx != null">
+                JCQX = #{jcqx},
+            </if>
+            <if test="autheninfo != null and autheninfo != ''">
+                AUTHENINFO = #{autheninfo},
+            </if>
+            <if test="flid != null">
+                FLID = #{flid},
+            </if>
+            <if test="sjbz != null">
+                SJBZ = #{sjbz},
+            </if>
+            <if test="gnbz != null">
+                GNBZ = #{gnbz},
+            </if>
+            <if test="stoped != null">
+                STOPED = #{stoped},
+            </if>
+            <if test="ick != null">
+                ICK = #{ick},
+            </if>
+            <if test="icksj != null and icksj != ''">
+                ICKSJ = #{icksj},
+            </if>
+            <if test="ksrq != null">
+                KSRQ = #{ksrq},
+            </if>
+            <if test="zzrq != null">
+                ZZRQ = #{zzrq},
+            </if>
+            <if test="xtdxid != null">
+                XTDXID = #{xtdxid},
+            </if>
+            <if test="movetel != null and movetel != ''">
+                MOVETEL = #{movetel},
+            </if>
+            <if test="ipaddr != null and ipaddr != ''">
+                IPADDR = #{ipaddr},
+            </if>
+            <if test="netcard != null and netcard != ''">
+                NETCARD = #{netcard},
+            </if>
+            <if test="cpucode != null and cpucode != ''">
+                CPUCODE = #{cpucode},
+            </if>
+            <if test="usertype != null">
+                USERTYPE = #{usertype},
+            </if>
+            <if test="userident != null and userident != ''">
+                USERIDENT = #{userident},
+            </if>
+            <if test="dh != null and dh != ''">
+                DH = #{dh},
+            </if>
+            <if test="isneedchgpwd != null">
+                ISNEEDCHGPWD = #{isneedchgpwd},
+            </if>
+            <if test="pwdusefullife != null">
+                PWDUSEFULLIFE = #{pwdusefullife},
+            </if>
+            <if test="chgpwdlasttime != null">
+                CHGPWDLASTTIME = #{chgpwdlasttime},
+            </if>
+            <if test="historypwdinfo != null and historypwdinfo != ''">
+                HISTORYPWDINFO = #{historypwdinfo},
+            </if>
+            <if test="yhbm != null and yhbm != ''">
+                YHBM = #{yhbm},
+            </if>
+            <if test="dxdw != null and dxdw != ''">
+                DXDW = #{dxdw},
+            </if>
+            <if test="email != null and email != ''">
+                EMAIL = #{email},
+            </if>
+            <if test="compid != null and compid != ''">
+                COMPID = #{compid},
+            </if>
+            <if test="isshare != null">
+                ISSHARE = #{isshare},
+            </if>
+            <if test="securgrd != null">
+                SECURGRD = #{securgrd},
+            </if>
+            <if test="enabledefaultprint != null and enabledefaultprint != ''">
+                ENABLEDEFAULTPRINT = #{enabledefaultprint},
+            </if>
+            <if test="enableupdown != null and enableupdown != ''">
+                ENABLEUPDOWN = #{enableupdown},
+            </if>
+            <if test="usersslb != null and usersslb != ''">
+                USERSSLB = #{usersslb},
+            </if>
+            <if test="vpdCompid != null and vpdCompid != ''">
+                VPD_COMPID = #{vpdCompid},
+            </if>
+            <if test="authtype != null">
+                AUTHTYPE = #{authtype},
+            </if>
+            <if test="lowermaninvisible != null and lowermaninvisible != ''">
+                LOWERMANINVISIBLE = #{lowermaninvisible},
+            </if>
+            <if test="ownerid != null and ownerid != ''">
+                OWNERID = #{ownerid},
+            </if>
+            <if test="appid != null and appid != ''">
+                APPID = #{appid},
+            </if>
+            <if test="gid != null and gid != ''">
+                GID = #{gid},
+            </if>
+            <if test="sex != null and sex != ''">
+                SEX = #{sex},
+            </if>
+        </set>
+        where = #{}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete
+        from XTYHXX
+        where = #{}
+    </delete>
+
+</mapper>
+

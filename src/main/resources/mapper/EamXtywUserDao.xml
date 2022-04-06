@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssx.eam2ncc.dao.EamXtywUserDao">
+
+    <resultMap type="com.ssx.eam2ncc.entity.EamXtywUser" id="EamXtywUserMap">
+
+        <result property="usercode" column="USERCODE" jdbcType="VARCHAR"/>
+        <result property="username" column="username" jdbcType="VARCHAR"/>
+        <result property="status" column="status" jdbcType="VARCHAR"/>
+        <result property="remark" column="remark" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="EamXtywUserMap">
+        select
+          usercode, username, status,remark
+        from EAM_XTYW_USER
+        where id = #{id}
+    </select>
+
+    <select id="queryAll" resultMap="EamXtywUserMap">
+        select
+         usercode, username, status,remark
+        from EAM_XTYW_USER
+       where  1=1
+        and status = 0
+    </select>
+
+
+</mapper>
+
