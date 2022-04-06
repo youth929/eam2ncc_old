@@ -119,11 +119,11 @@ public class Xtyhxx implements Serializable {
     /**
      * 是否需要修改密码
      */
-    private INTEGER isneedchgpwd;
+    private Integer isneedchgpwd;
     /**
      * 密码使用周期
      */
-    private INTEGER pwdusefullife;
+    private Integer pwdusefullife;
     /**
      * 上次修改密码时间
      */
@@ -175,7 +175,7 @@ public class Xtyhxx implements Serializable {
     /**
      * 用户认证类型，0表示普通用户名密码认证，1表示证书认证
      */
-    private INTEGER authtype;
+    private Integer authtype;
     /**
      * 设置下级管理员不可见，0-可见；1-不可见，默认0
      */
@@ -406,19 +406,19 @@ public class Xtyhxx implements Serializable {
         this.dh = dh;
     }
 
-    public INTEGER getIsneedchgpwd() {
+    public Integer getIsneedchgpwd() {
         return isneedchgpwd;
     }
 
-    public void setIsneedchgpwd(INTEGER isneedchgpwd) {
+    public void setIsneedchgpwd(Integer isneedchgpwd) {
         this.isneedchgpwd = isneedchgpwd;
     }
 
-    public INTEGER getPwdusefullife() {
+    public Integer getPwdusefullife() {
         return pwdusefullife;
     }
 
-    public void setPwdusefullife(INTEGER pwdusefullife) {
+    public void setPwdusefullife(Integer pwdusefullife) {
         this.pwdusefullife = pwdusefullife;
     }
 
@@ -518,11 +518,11 @@ public class Xtyhxx implements Serializable {
         this.vpdCompid = vpdCompid;
     }
 
-    public INTEGER getAuthtype() {
+    public Integer getAuthtype() {
         return authtype;
     }
 
-    public void setAuthtype(INTEGER authtype) {
+    public void setAuthtype(Integer authtype) {
         this.authtype = authtype;
     }
 
